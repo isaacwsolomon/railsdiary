@@ -1,4 +1,5 @@
 class EntriesController < ApplicationController
+  before_action :require_login
   before_action :set_current_user, only: %i[ show edit update destroy ]
   before_action :set_entry, only: %i[ show edit update destroy ]
 
@@ -68,5 +69,11 @@ class EntriesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def entry_params
       params.require(:entry).permit(:content)
+    end
+
+    def require_login
+      unless set_current_user
+        redirect_to root_path
+      end
     end
 end
