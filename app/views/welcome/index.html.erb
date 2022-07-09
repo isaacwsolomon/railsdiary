@@ -1,9 +1,19 @@
-<h1>Welcome to Rails Diary</h1>
+<h1>Log in to view your Diary</h1>
 
 <% if Current.user %>
-  Logged in as: Current.user.email<br>
+  Logged in as: <%= Current.user.email %> <br>
   <%= button_to "Sign Out", logout_path,  method: :delete %>
   <% else %>
-  <%= link_to "Sign up", sign_up_path %>
-  <%= link_to "Sign In", sign_in_path %>
+  <%= form_with url: sign_in_path do |f| %>
+
+    <p>
+    <%= f.label :Email %><br>
+    <%= f.text_field :email %>
+    </p><p>
+    <%= f.label :Password %><br>
+    <%= f.password_field :password %>
+    </p>
+    <%= f.submit "Sign in" %>
+<% end %>
+  <p>New here? <%= link_to "Sign up", sign_up_path %></p>
 <% end %>
