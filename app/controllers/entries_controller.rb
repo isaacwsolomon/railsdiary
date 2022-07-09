@@ -1,9 +1,10 @@
 class EntriesController < ApplicationController
+  before_action :set_current_user, only: %i[ show edit update destroy ]
   before_action :set_entry, only: %i[ show edit update destroy ]
 
   # GET /entries or /entries.json
   def index
-    @entries = Entry.all
+    @entries = set_current_user.entries
   end
 
   # GET /entries/1 or /entries/1.json
@@ -22,7 +23,7 @@ class EntriesController < ApplicationController
   # POST /entries or /entries.json
   def create
     @entry = Entry.new(entry_params)
-
+    @entry.user_id = set_current_user.id
     respond_to do |format|
       if @entry.save
         format.html { redirect_to entry_url(@entry), notice: "Entry was successfully created." }
