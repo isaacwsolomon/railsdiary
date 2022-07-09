@@ -4,7 +4,7 @@ class EntriesController < ApplicationController
 
   # GET /entries or /entries.json
   def index
-    @entries = set_current_user.entries
+    @entries = set_current_user.entries.order("created_at DESC")
   end
 
   # GET /entries/1 or /entries/1.json
