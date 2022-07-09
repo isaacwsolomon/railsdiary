@@ -5,6 +5,7 @@ class EntriesController < ApplicationController
   # GET /entries or /entries.json
   def index
     @entries = set_current_user.entries.order("created_at DESC")
+    @entry = Entry.new
   end
 
   # GET /entries/1 or /entries/1.json
@@ -26,7 +27,7 @@ class EntriesController < ApplicationController
     @entry.user_id = set_current_user.id
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to entry_url(@entry), notice: "Entry was successfully created." }
+        format.html { redirect_to entries_url }
         format.json { render :show, status: :created, location: @entry }
       else
         format.html { render :new, status: :unprocessable_entity }
