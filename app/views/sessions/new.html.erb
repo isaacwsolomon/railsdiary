@@ -2,11 +2,12 @@
 
 <%= form_with url: sign_in_path do |f| %>
 
-    <%= f.label :Email %>
+    <p>
+    <%= f.label :Email %><br>
     <%= f.text_field :email %>
-
-    <%= f.label :Password %>
+    </p><p>
+    <%= f.label :Password %><br>
     <%= f.password_field :password %>
-
+    </p>
     <%= f.submit "Sign in" %>
 <% end %>
