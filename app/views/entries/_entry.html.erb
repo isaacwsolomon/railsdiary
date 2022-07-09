@@ -1,6 +1,6 @@
 <div id="<%= dom_id entry %>">
   <p>
-    <strong>Content:</strong>
+    <strong><%= entry.created_at.strftime("%F - %H:%M") %></strong></br>
     <%= entry.content %>
   </p>
 
