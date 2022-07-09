@@ -1,3 +1,6 @@
+<div align="right">
+Welcome <%= Current.user.email %> <%= button_to "Sign Out", logout_path,  method: :delete %>
+</div>
 <p style="color: green"><%= notice %></p>
 
 <%= render "form", entry: @entry %>
