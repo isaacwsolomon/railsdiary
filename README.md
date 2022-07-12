@@ -54,7 +54,7 @@ You can see the changes I made in the commit history. To keep things simple I mi
 
 ## Deploy to fly.io
 
-Fly make it easy to get a Rails app up and running in production. You can see this app at https://isaacdiary.fly.dev
+Fly make it easy to get a Rails app up and running in production. You can see this app at https://railsdiary.fly.dev 
 
 If you want to deploy your own version, fork this repo and follow the [fly docs to get flyctl installed](https://fly.io/docs/getting-started/installing-flyctl/) on your computer.
 
